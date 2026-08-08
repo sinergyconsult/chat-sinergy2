@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinergy Consult - Entorno de Pruebas Corporativo</title>
+    <style>
+        /* 1. Fondo general de la web con el papel tapiz de la esfera repetido sutilmente */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column; /* Alinea los elementos verticalmente (Logo arriba, Chat abajo) */
+            justify-content: center;
+            align-items: center;
+            background-color: #fff8f4; /* Tono crema/naranja pastel sumamente suave */
+            background-image: url('image_rFCP5z.png'); /* Busca la esfera en la misma carpeta */
+            background-repeat: repeat;
+            background-size: 110px; /* Tamaño del patrón en los márgenes laterales */
+            background-blend-mode: multiply; /* Suaviza la integración del patrón con el fondo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* 2. Contenedor para el Logo Corporativo Superior */
+        .logo-header {
+            margin-bottom: 25px; /* Separación elegante entre el logo y el cuadro del chat */
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo-header img {
+            max-height: 55px; /* Tamaño institucional para el logotipo con letras */
+            width: auto;
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.05)); /* Sombra ligera bajo el logo */
+        }
+
+        /* 3. Tarjeta central flotante que encierra el chat de Botpress */
+        .chat-wrapper {
+            width: 85%;       /* Espacio de separación a los lados izquierdo y derecha */
+            height: 75%;      /* Espacio de separación arriba y abajo */
+            max-width: 1100px; /* Evita que se deforme en monitores muy grandes */
+            max-height: 750px;
+            background-color: #ffffff;
+            border-radius: 16px; /* Esquinas redondeadas modernas */
+            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.12); /* Sombra elegante usando el color naranja de marca */
+            overflow: hidden;
+            border: 1px solid rgba(255, 102, 0, 0.15); /* Borde sutil corporativo */
+            animation: slideUp 0.8s ease-out;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        /* Animaciones estéticas de carga suave al abrir la página */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera con tu Logotipo Completo (Nombre + Esfera) -->
+    <div class="logo-header">
+        <img src="image_fcq80K.png" alt="Sinergy Consult Logo">
+    </div>
+
+    <!-- Contenedor del Chatbot -->
+    <div class="chat-wrapper">
+        <!-- Enlace del bot interactivo de Botpress -->
+        <iframe src="https://cdn.botpress.cloud/webchat/v3.7/shareable.html?configUrl=https://files.bpcontent.cloud/2026/07/18/22/20260718220928-9RNHQNIA.json"></iframe>
+    </div>
+
+</body>
+</html>
