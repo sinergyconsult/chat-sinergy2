@@ -3,47 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinergy Consult - Asistente de Ciberseguridad</title>
+    <title>Sinergy Consult - Entorno de Pruebas Corporativo</title>
     <style>
-        /* Reset y fondo igual que la home */
+        /* 1. Fondo general de la web con el papel tapiz de la esfera repetido sutilmente */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
-            background-color: #030a16; /* mismo fondo oscuro de Sinergy */
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        /* Contenedor del iframe con sombra y bordes redondeados */
-        .iframe-wrapper {
-            width: 100%;
-            height: 100%;
             display: flex;
+            flex-direction: column; 
             justify-content: center;
             align-items: center;
-            background: #030a16;
+            background-color: #fff8f4; 
+            background-image: url('image_rFCP5z.png.png'); 
+            background-repeat: repeat;
+            background-size: 110px; 
+            background-blend-mode: multiply; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
         }
 
+        /* 2. Contenedor para el Logo Corporativo Superior */
+        .logo-header {
+            margin-bottom: 25px; 
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo-header img {
+            max-height: 55px; 
+            width: auto;
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.05)); 
+        }
+
+        /* 3. Tarjeta central flotante EXPANDIDA A LO ANCHO */
+        .chat-wrapper {
+            width: 95%;        /* Estira el cuadro usando casi todo el espacio de izquierda a derecha */
+            height: 75%;       /* Mantiene la altura equilibrada */
+            max-width: 1450px; /* Permite que el chat se expanda horizontalmente de forma masiva */
+            max-height: 750px; /* Bloquea la altura para que NO crezca hacia abajo */
+            background-color: #ffffff;
+            border-radius: 16px; 
+            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.15); 
+            overflow: hidden;
+            border: 1px solid rgba(255, 102, 0, 0.15); 
+            animation: slideUp 0.8s ease-out;
+            display: flex !important; /* Fuerza la alineación interna */
+        }
+
+        /* 4. Estilos visuales del iframe (Aquí NO va el link, solo las dimensiones físicas) */
         iframe {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;   /* Fuerza al bot a ocupar todo el ancho de la tarjeta blanca */
+            height: 100% !important;  /* Fuerza al bot a ocupar todo el alto de la tarjeta blanca */
+            min-width: 100% !important; 
             border: none;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+            background: transparent;
         }
 
-        /* ESTILOS QUE SE APLICAN AL CONTENIDO DEL IFRAME (vía inyección) */
-        /* Nota: como el iframe es cross-origin, esto solo funciona si Botpress permite personalización vía URL */
-        /* Alternativa: usar el parámetro &customCss= en la URL de Botpress (si está habilitado) */
+        /* Animaciones estéticas de carga */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <div class="iframe-wrapper">
-        <!-- Agregamos parámetro para intentar personalizar (algunas versiones lo soportan) -->
+
+    <!-- Cabecera con tu Logotipo Completo (Nombre + Esfera) -->
+    <div class="logo-header">
+        <img src="image_fcq80K.png.png" alt="Sinergy Consult Logo">
+    </div>
+
+    <!-- Contenedor del Chatbot (Aquí SÍ está tu enlace real e intacto) -->
+    <div class="chat-wrapper">
         <iframe 
             src="https://cdn.botpress.cloud/webchat/v3.7/shareable.html?configUrl=https://files.bpcontent.cloud/2026/07/18/22/20260718220928-9RNHQNIA.json&theme=dark&primaryColor=%23f5c842&backgroundColor=%23030a16&fontColor=%23ffffff">
         </iframe>
     </div>
+
 </body>
 </html>
